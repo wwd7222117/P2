@@ -29,7 +29,6 @@ class EntityStats_Rogue : public iEntityStats_Mob
 {
 public:
     virtual MobType getMobType() const { return Rogue; }
-    virtual TargetType getType() const { return Mob; }
     virtual float getElixirCost() const { return 2.f; }
     virtual int getMaxHealth() const { return 500; }
     virtual float getSpeed() const { return 5.f; }
@@ -44,18 +43,17 @@ public:
     virtual const char* getName() const { return "Rogue"; }
     virtual const char* getDisplayLetter() const { return "R"; }
 
-    virtual bool canSpringAttack() const { return true; }
-    virtual float getSpringRange() const { return 2.5; }
-    virtual float getSpringSpeed() const { return 15; }
-    virtual int getSpringAttackDamage() const { return 1000; }
-    virtual float perferGiantRange() const { return 2.f; }
-    virtual float getHideDistance() const { return 0.5f; }
+    virtual bool canSpringAttack() { return true; }
+    virtual float getSpringRange() { return 2.5; }
+    virtual float getSpringSpeed() { return 15; }
+    virtual float getSpringAttackDamage() { return 1000; }
+    virtual float perferGiantRange() { return 2.f; }
+    virtual float getHideDistance() { return 0.5f; }
 };
 
 class EntityStats_Swordsman : public iEntityStats_Mob
 {
 public:
-    virtual TargetType getType() const { return Mob; }
     virtual MobType getMobType() const { return Swordsman; }
     virtual float getElixirCost() const { return 3.f; }
     virtual int getMaxHealth() const { return 1452; }
@@ -75,7 +73,6 @@ public:
 class EntityStats_Archer : public iEntityStats_Mob
 {
 public:
-    virtual TargetType getType() const { return Mob; }
     virtual MobType getMobType() const { return Archer; }
     virtual float getElixirCost() const { return 2.f; }
     virtual int getMaxHealth() const { return 216; }
@@ -95,7 +92,6 @@ public:
 class EntityStats_Giant : public iEntityStats_Mob
 {
 public:
-    virtual TargetType getType() const { return Mob; }
     virtual MobType getMobType() const { return Giant; }
     virtual float getElixirCost() const { return 5.f; }
     virtual int getMaxHealth() const { return 3275; }
@@ -115,7 +111,6 @@ public:
 class EntityStats_Princess : public iEntityStats_Building
 {
 public:
-    virtual TargetType getType() const { return Building; }
     virtual BuildingType getBuildingType() const { return Princess; }
     virtual int getMaxHealth() const { return 2534; }
     virtual float getSize() const { return 2.5f; }
@@ -131,8 +126,6 @@ public:
 class EntityStats_King : public iEntityStats_Building
 {
 public:
-
-    virtual TargetType getType() const { return Building; }
     virtual BuildingType getBuildingType() const { return King; }
     virtual int getMaxHealth() const { return 4008; }
     virtual float getSize() const { return 3.5f; }
@@ -148,8 +141,6 @@ public:
 class EntityStats_Invalid : public iEntityStats_Mob
 {
 public:
-
-    virtual TargetType getType() const { return Any; }
     virtual MobType getMobType() const { return InvalidMobType; }
     virtual BuildingType getBuildingType() const { return InvalidBuildingType; }
     virtual float getElixirCost() const { return FLT_MAX; }

@@ -23,7 +23,6 @@
 #pragma once
 
 #include "Entity.h"
-#include "Player.h"
 
 struct Waypoint;
 
@@ -35,25 +34,13 @@ public:
     virtual void tick(float deltaTSec);
 
     virtual bool isHidden() const;
-    
 
 protected:
     void move(float deltaTSec);
     const Vec2* pickWaypoint();
     Mob* checkCollision();
     void processCollision(Mob* otherMob, float deltaTSec);
-    bool isHiding() const;
-    bool isObstructedByGiantOrTower(Entity* e, Player& friendlyPlayer) const;
-    bool lineSquareIntersection(Vec2 start, float size, Vec2 obj_pos) const;
-    const Vec2* pickRogueWaypoint();
-    bool isEnemyInSpringAttackRange();
-
 
 private:
     const Vec2* m_pWaypoint;
-    int m_ticksSinceHidden = 0;
-    bool m_bFollowingGiant = false;
-    Entity* m_eFriendlyGiant;
-
-    
 };
